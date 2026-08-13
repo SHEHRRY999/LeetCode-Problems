@@ -8,8 +8,8 @@ class Solution:
         k = len(queryIndices)
         result = [0] * k
 
-        segments = SortedDict()   # start -> length
-        counts = SortedDict()     # length -> count of runs with that length
+        segments = SortedDict()   
+        counts = SortedDict()     
 
         def add_len(length):
             if length > 0:
@@ -21,7 +21,6 @@ class Solution:
                 if counts[length] == 0:
                     del counts[length]
 
-        # build initial runs
         i = 0
         while i < n:
             j = i
