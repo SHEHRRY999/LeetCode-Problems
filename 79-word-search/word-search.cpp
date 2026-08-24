@@ -11,13 +11,13 @@ public:
         char temp = board[row][col];
         board[row][col] = '#'; 
 
-        bool found = isValid(board, row + 1, col, word, i + 1) ||
-                     isValid(board, row - 1, col, word, i + 1) ||
-                     isValid(board, row, col + 1, word, i + 1) ||
-                     isValid(board, row, col - 1, word, i + 1);
+        bool down = isValid(board, row + 1, col, word, i + 1);
+        bool up = isValid(board, row - 1, col, word, i + 1);
+        bool right = isValid(board, row, col + 1, word, i + 1);
+        bool left = isValid(board, row, col - 1, word, i + 1);
 
         board[row][col] = temp;  
-        return found;
+        return up || down || right || left;
     }
 
     bool exist(vector<vector<char>>& board, string word) {
